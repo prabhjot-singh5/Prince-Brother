@@ -1,22 +1,22 @@
 /* CONTENT CONFIG — update this object; leave media paths blank for placeholders. */
 const content = {
     brotherName: "Prince Brother",
-    personalMessage: "[Write your personal message here. This is a space for the things you mean, in your own words.]",
+    personalMessage: `ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਤਾਂ ਹੈਪੀ ਬਰਥਡੇ ਤੇ ਮੇਰੇ ਵੱਲੋਂ ਤੈਨੂੰ ਬਹੁਤ ਸਾਰਾ ਧੰਨਵਾਦ।
+
+ਧੰਨਵਾਦ ਇਸ ਗੱਲ ਲਈ ਕਿ ਮੈਂ ਅੱਜ ਇਹ ਲੈਪਟਾਪ ‘ਤੇ ਇਹ ਮੈਸੇਜ ਲਿਖ ਰਿਹਾ ਹਾਂ, ਕਾਲਜ ਜਾ ਰਿਹਾ ਹਾਂ। ਪਤਾ ਹੈ ਕਿ ਸ਼ਾਇਦ ਇਸਦਾ ਕੋਈ ਫਾਇਦਾ ਨਹੀਂ, ਪਰ ਅੱਜ ਤੇਰੇ ਬਿਨਾਂ ਮੈਂ ਕਾਲਜ ਨਹੀਂ ਜਾ ਸਕਦਾ ਸੀ।
+
+ਅੱਜ ਘਰ ਵਿੱਚ ਜੋ ਵੀ ਨਵੀਂ ਚੀਜ਼ ਖਰੀਦੀ ਜਾਂਦੀ ਹੈ — ਨਵੀਂ ਮੋਟਰ ਹੋਵੇ, ਕੋਈ ਕੱਪੜੇ ਹੋਣ ਜਾਂ ਹੋਰ ਕੁਝ — ਉਹ ਸਭ ਇਸ ਕਰਕੇ ਆ ਜਾਂਦੀ ਹੈ ਕਿਉਂਕਿ ਤੂੰ ਪੈਸੇ ਦਿੰਦਾ ਹੈਂ।
+
+ਮੈਂ ਬੱਸ ਇਹੀ ਕਹਾਂਗਾ ਕਿ ਰੱਬ ਤੈਨੂੰ ਹਮੇਸ਼ਾ ਖੁਸ਼ ਰੱਖੇ, ਚੜ੍ਹਦੀ ਕਲਾ ਵਿੱਚ ਰੱਖੇ, ਤੰਦਰੁਸਤੀ ਵਿੱਚ ਰੱਖੇ, ਤੇਰੇ ਹਰ ਸੁਪਨੇ ਪੂਰੇ ਕਰੇ ਤੇ ਤੇਰੀ PR ਵੀ ਜਲਦੀ ਹੀ ਹੋ ਜਾਵੇ।
+
+ਸ਼ੁਕਰੀਆ ਹਰ ਇੱਕ ਚੀਜ਼ ਲਈ।`,
     signature: "— Prabhjot",
     celebrationMessage: "Happy Birthday, Prince Brother. I hope this year gives you more stories worth keeping.",
     memories: [
         { image: "./assets/images/memory1.jpg", label: "[Memory Photo 1]", caption: "" },
         { image: "./assets/images/memory2.jpg", label: "[Memory Photo 2]", caption: "" },
         { image: "./assets/images/memory3.jpg", label: "[Memory Photo 3]", caption: "" }
-    ],
-    familyWishes: [
-        { name: "Mom", video: "", message: "[Mom’s birthday wish]" },
-        { name: "Dad", video: "", message: "[Dad’s birthday wish]" }
-    ],
-    friendWishes: [
-        { name: "Friend 1", video: "", message: "[A message from Friend 1]" }
-    ],
-    personalVideo: { video: "", label: "[My Birthday Video]" }
+    ]
 };
 
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -30,24 +30,6 @@ function applyText() {
     document.title = `A little something for ${content.brotherName}`;
 }
 
-function videoCard(item, feature = false) {
-    const card = document.createElement(feature ? "div" : "article");
-    card.className = feature ? "" : "video-card";
-    if (item.video) {
-        const video = document.createElement("video");
-        video.controls = true; video.preload = "metadata"; video.playsInline = true; video.src = item.video;
-        video.setAttribute("aria-label", `${item.name || "Personal"} birthday video`); card.append(video);
-    } else {
-        const preview = document.createElement("div"); preview.className = "video-preview";
-        preview.innerHTML = `<span class="play-mark" aria-hidden="true">▶</span><p>${item.label || `[${item.name}'s Video]`}</p>`; card.append(preview);
-    }
-    if (!feature) {
-        const copy = document.createElement("div"); copy.className = "video-card-copy";
-        copy.innerHTML = `<strong>${item.name}</strong><p>${item.message}</p>`; card.append(copy);
-    }
-    return card;
-}
-
 function renderContent() {
     content.memories.forEach((memory) => {
         const figure = document.createElement("figure"); figure.className = "memory-card reveal";
@@ -57,9 +39,6 @@ function renderContent() {
         const caption = document.createElement("figcaption"); caption.textContent = memory.caption;
         figure.append(visual, caption); $("#memoryGrid").append(figure);
     });
-    content.familyWishes.forEach((wish) => $("#familyGrid").append(videoCard(wish)));
-    content.friendWishes.forEach((wish) => $("#friendsGrid").append(videoCard(wish)));
-    $("#personalVideo").append(videoCard(content.personalVideo, true));
 }
 
 function animations() {

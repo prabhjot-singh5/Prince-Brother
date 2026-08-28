@@ -434,107 +434,96 @@ em {
     line-height: 1.35
 }
 
-.wishes {
-    background: #dfd5ca;
-    padding-top: 100px
+.for-you {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background: #f3eee6
 }
 
-.wishes .section-heading h2,
-.friends .section-heading h2 {
-    font-size: clamp(2.4rem, 10.5vw, 4.2rem)
-}
-
-.video-grid {
-    display: grid;
-    gap: 18px;
-    margin-top: 42px;
-    max-width: 1050px
-}
-
-.video-card,
-.feature-video {
-    overflow: hidden;
-    border-radius: 5px;
-    background: #242332;
-    box-shadow: 0 15px 40px #2a1c1f22
-}
-
-.video-preview {
-    aspect-ratio: 16/10;
+.for-you-card {
     position: relative;
-    display: flex;
-    align-items: flex-end;
-    padding: 18px;
-    background: linear-gradient(135deg, #4d3a49, #a66d68)
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: clamp(52px, 9vw, 90px) clamp(25px, 8vw, 100px);
+    text-align: center;
+    color: #fffaf1;
+    background: linear-gradient(125deg, #393344, #704b57 54%, #a66f66);
+    border-radius: 5px;
+    box-shadow: 0 20px 45px #38263024
 }
 
-.video-preview:after {
+.for-you-card:before,
+.for-you-card:after {
     content: '';
     position: absolute;
-    inset: 10px;
-    border: 1px solid #fff4
-}
-
-.video-preview p {
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: .14em;
-    font-size: .64rem;
-    font-weight: 700
-}
-
-.play-mark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: grid;
-    place-items: center;
-    width: 48px;
-    height: 48px;
+    width: 230px;
+    height: 230px;
+    border: 1px solid #ffffff2d;
     border-radius: 50%;
-    border: 1px solid #fffb;
-    color: white;
-    font-size: 1.1rem
+    pointer-events: none
 }
 
-.video-card video,
-.feature-video video {
-    width: 100%;
-    display: block;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    background: #16151d
+.for-you-card:before {
+    top: -135px;
+    left: -100px
 }
 
-.video-card-copy {
-    padding: 16px 18px 19px;
-    background: #f8f3eb;
-    color: #27222a
+.for-you-card:after {
+    right: -120px;
+    bottom: -155px;
+    width: 285px;
+    height: 285px
 }
 
-.video-card-copy strong {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 500
+.for-you-card .eyebrow {
+    position: relative;
+    margin-bottom: 20px;
+    color: #f3c786
 }
 
-.video-card-copy p {
-    margin: 7px 0 0;
-    color: #706871;
-    font-size: .82rem;
-    line-height: 1.45
+.for-you-card h2 {
+    position: relative;
+    font-size: clamp(2.7rem, 10vw, 5.4rem);
+    line-height: .96
 }
 
-.friends {
-    background: #f3eee6;
-    padding-top: 92px
+.for-you-card h2 em {
+    color: #f4cd92
 }
 
-.friends-grid .video-preview {
-    background: linear-gradient(135deg, #d19b79, #667084)
+.for-you-card > p:last-child {
+    position: relative;
+    max-width: 390px;
+    margin: 22px auto 0;
+    color: #f5e9e1c9;
+    font-size: .92rem;
+    line-height: 1.7
+}
+
+.for-you-line {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    margin-top: 26px;
+    color: #f3c786;
+    font-size: .78rem
+}
+
+.for-you-line span {
+    width: 38px;
+    height: 1px;
+    background: #f3c7868c
+}
+
+.for-you-sparkle {
+    position: absolute;
+    top: 24px;
+    right: clamp(24px, 6vw, 62px);
+    color: #f3c786;
+    font-size: 1.3rem
 }
 
 .letter {
@@ -585,22 +574,6 @@ em {
     font-family: Caveat, cursive;
     font-size: 2rem;
     color: #7f4c50
-}
-
-.final-video {
-    background: #f3eee6;
-    padding-top: 20px;
-    padding-bottom: 100px
-}
-
-.feature-video {
-    margin: 43px auto 0;
-    max-width: 950px
-}
-
-.feature-video .video-preview {
-    aspect-ratio: 16/9;
-    background: linear-gradient(135deg, #573c4f, #bb856d)
 }
 
 .celebration {
@@ -707,22 +680,10 @@ em {
         min-height: 0;
     }
 
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px
-    }
-
-    .friends-grid {
-        grid-template-columns: repeat(3, 1fr)
-    }
-
     .letter-card {
         padding: 70px 11%
     }
 
-    .wishes,
-    .friends,
-    .final-video,
     .letter {
         padding-top: 130px;
         padding-bottom: 130px
